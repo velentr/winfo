@@ -1,0 +1,52 @@
+WINFO(1)                     General Commands Manual                     WINFO(1)
+
+
+
+NAME
+       winfo - download and display weather information from wunderground
+
+SYNOPSIS
+       winfo [-h] [-v] [-f] [profile]
+
+DESCRIPTION
+       winfo  is  a  simple  command-line  program for downloading and displaying
+       weather information from wunderground. It stores the  downloaded  data  on
+       disk in order to allow fast access, and can be used to update the informa‐
+       tion at regular intervals using a job scheduler. All  data  is  stored  in
+       JSON format, so it can easily be used by other programs. Information about
+       what data to download and display is controlled by profiles in the  user's
+       home directory.
+
+ARGUMENTS
+       -h     Print usage information about the program, then exit.
+
+       -v     Print version information about the program and exit.
+
+       -f     Download new weather data instead of printing cached data.
+
+       profile
+              Use  the  given  profile  to  configure what weather information to
+              download. The profiles are stored in ~/.config/winfo/  by  default.
+              If  no  profile  is  specified,  'default' is used. See the section
+              below for more information.
+
+PROFILES
+       The behavior of this program is controlled by the use of  profiles.  These
+       profiles  are stored in ~/.config/winfo/ by default. Each profile contains
+       information in the JSON format. Each profile must include the set of  fea‐
+       tures for downloading, the query location to download for, a valid wunder‐
+       ground developer's key, and an output format. If no profile is given, then
+       the  ~/.config/winfo/default.json  profile is used. Otherwise, the profile
+       ~/.config/winfo/<profile>.json is used. See the included documentation for
+       more details on profiles.
+
+BUGS
+       Probably. This hasn't been tested extensively. Report any bugs you find to
+       the github page http://github.com/velentr/winfo.git
+
+AUTHOR
+       Copyright (c) 2014 Brian Kubisiak <velentr.rc@gmail.com>
+
+
+
+                                    winfo-0.1                            WINFO(1)

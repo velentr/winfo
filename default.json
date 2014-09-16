@@ -1,0 +1,9 @@
+{
+    "test": "this is a test",
+    "features": [
+        "conditions", "geolookup", "forecast"
+    ],
+    "query": "CA/Pasadena",
+    "devkey": "DEV_KEY",
+    "format": "%temperature_string%"
+}
