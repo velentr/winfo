@@ -29,7 +29,7 @@ def main():
         weather = fetch(profile)
         try:
             out = open(datafile, 'w')
-            json.dump(weather, out)
+            json.dump(weather, out, indent=4, separators=(',', ': '))
             out.close()
         except IOError:
             print "Cannot write cache file for '%s'." % profname

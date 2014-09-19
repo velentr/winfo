@@ -1,9 +1,8 @@
 {
-    "test": "this is a test",
     "features": [
         "conditions", "geolookup", "forecast"
     ],
-    "query": "CA/Pasadena",
-    "devkey": "DEV_KEY",
-    "format": "%temperature_string%"
+    "query": "MN/Chanhassen",
+    "devkey": "PUT YOUR DEV KEY HERE",
+    "format": "%weather%, %temp_f% F"
 }
