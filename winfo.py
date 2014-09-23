@@ -54,6 +54,12 @@ def parseformat(fmt, data):
     data -- the weather data to use
     """
     def lookup(data, keys):
+        """Recursively look up an array of keys in nested dictionaries.
+
+        Arguments:
+        data -- nested dictionaries in which to look up the array of keys.
+        keys -- array of keys to look up in the dictionary
+        """
         if len(keys) == 1:
             return str(data[keys[0]])
         else:

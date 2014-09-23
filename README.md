@@ -59,15 +59,14 @@ pretty easy to do, and free for low-volume usage.
 The format string is what `winfo` will print when it is run. It can contain
 plain text and any escape characters supported by JSON. In addition, any strings
 enclosed in percent signs (%) will be substituted with the wunderground data
-corresponding to that string (in the 'current_observations' category).
+corresponding to that string, where forward slashes (/) denote nested levels in
+the data.
 
-For example, the string `%weather%, %temp_f% F` might be printed out as
-`Scattered Clouds, 71.0 F`.
+For example, the string `%current_observation/weather%,
+%current_observation/temp_f% F` might be printed out as `Scattered Clouds, 71.0
+F`.
 
 In order to use a literal percent, escape it with a backslash (e.g. '\%').
-
-At the time of this writing, only keys under 'current_observation' are
-supported. Hopefully this will change soon...
 
 # Copyright
 
