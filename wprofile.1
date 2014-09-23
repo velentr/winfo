@@ -1,0 +1,42 @@
+.\" Process this file with
+.\" groff -man -Tascii wprofile.1
+.\"
+.TH WPROFILE 1 "wprofile-0.1" "" "General Commands Manual"
+.SH NAME
+wprofile \- manage profiles for
+.BR winfo (1)
+.SH SYNOPSIS
+.B wprofile
+.RB [ \-h ]
+.RB [ \-v ]
+.RB [ \-f ]
+.RB < profile >
+.RB [ target ]
+.SH DESCRIPTION
+.B wprofile
+is a simple tool for managing profiles for the
+.BR winfo (1)
+utility. This tool will create symlinks for different profiles, allowing the
+user to easily switch between profiles.
+.SH ARGUMENTS
+.TP
+.B \-h
+Print usage information about the program, then exit.
+.TP
+.B \-v
+Print version information about the program and exit.
+.TP
+.B \-f
+Force the profile to be overwritten, even if it is not a symlink.
+.TP
+.B profile
+Symlink this profile to the target name.
+.TP
+.B target
+Name of the virtual profile that will be linked to the given profile. If none is
+specified, 'default' is used.
+.SH BUGS
+The arguments must be given before the profile name. If any are given after,
+they may cause problems and will definitely not be used.
+.SH AUTHOR
+Copyright (c) 2014 Brian Kubisiak <velentr.rc@gmail.com>
