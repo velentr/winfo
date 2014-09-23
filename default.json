@@ -4,5 +4,5 @@
     ],
     "query": "MN/Chanhassen",
     "devkey": "PUT YOUR DEV KEY HERE",
-    "format": "%weather%, %temp_f% F"
+    "format": "%current_observation/weather%, %current_observation/temp_f% F"
 }

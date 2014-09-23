@@ -68,7 +68,7 @@ Comments, complaints, suggestions, etc. are all welcome.
 
 # TODO
 
-- [ ] extend format strings to allow arbitrary categories
+- [x] extend format strings to allow arbitrary categories
 - [x] write scripts for managing profiles
 - [ ] document wprofile script
 - [ ] fix getopt in wprofile to allow args in any order

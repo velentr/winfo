@@ -38,7 +38,7 @@ def main():
         try:
             infile = open(datafile, 'r')
             data = json.load(infile)
-            print parseformat(profile['format'], data['current_observation'])
+            print parseformat(profile['format'], data)
         except IOError:
             print "Cannot read cache file for '%s'." % profname
             exit(1)
@@ -53,6 +53,12 @@ def parseformat(fmt, data):
     fmt -- the format string to parse
     data -- the weather data to use
     """
+    def lookup(data, keys):
+        if len(keys) == 1:
+            return str(data[keys[0]])
+        else:
+            return lookup(data[keys[0]], keys[1:])
+
     def translate(match):
         """Translate a matched group into a data string using the given weather
         data. If the key does not exist, return the match group without the
@@ -62,9 +68,10 @@ def parseformat(fmt, data):
         match -- the matched pattern to replace
         """
         try:
-            return str(data[match.group()[1:-1]])
+            keys = match.group().strip('%').split('/')
+            return lookup(data, keys)
         except KeyError:
-            return match.group()[1:-1]
+            return match.group().strip('%')
 
     # Cool regex to replace all '%thing%' with the value stored in
     # data['thing'], ignoring any escapes (eg '\%')
