@@ -17,6 +17,15 @@ will display the data. If no profile is specified, then 'default' is used.
 Two other command-line options, `-h` and `-v`, are available for showing help
 and version information (respectively).
 
+## wprofile
+
+This script is provided to help managing profiles. If, for example, you often
+travel between Chicago and New York City, and have profiles `chicago.json` and
+`nyc.json` for these, `wprofile` can help to switch between these locations.
+Running `wprofile chicago` will symlink `chicago.json` to `default.json`,
+displaying the chicago data by default. `wprofile` also accepts an optional
+target name to use instead of 'default'.
+
 # Configuration
 
 Configuration for `winfo` is done via JSON profiles stored in
@@ -70,7 +79,7 @@ Comments, complaints, suggestions, etc. are all welcome.
 
 - [x] extend format strings to allow arbitrary categories
 - [x] write scripts for managing profiles
-- [ ] document wprofile script
+- [x] document wprofile script
 - [ ] fix getopt in wprofile to allow args in any order
 - [ ] better documentation
 
