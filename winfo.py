@@ -9,7 +9,7 @@ import os.path      # for getting the path to the profiles
 # Current version information
 PROGRAM_NAME = 'winfo'
 MAJOR_VERSION = '0'
-MINOR_VERSION = '1'
+MINOR_VERSION = '2'
 COPYRIGHT = 'Copyright (c) 2014 Brian Kubisiak <velentr.rc@gmail.com>'
 
 VERSTR      = MAJOR_VERSION + '.' + MINOR_VERSION
