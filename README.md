@@ -11,8 +11,9 @@ profile for the script to use (see the configuration section below for details).
 # Usage
 
 `winfo` aims to be incredibly simple to use: after your profile is set up,
-running `winfo -f <profile>` will fetch new weather data, and `winfo <profile>`
-will display the data. If no profile is specified, then 'default' is used.
+running `winfo -f <profile>` will fetch new weather data before printing it, and
+`winfo <profile>` will display the data. To fetch data without printing it, run
+`winfo -f -q`. If no profile is specified, then 'default' is used.
 
 Two other command-line options, `-h` and `-v`, are available for showing help
 and version information (respectively).
@@ -35,6 +36,8 @@ location, a devkey developer's key from
 the output as. The features and query that are available, along with variables
 to print in the format string, are specified in the [API
 documentation](http://www.wunderground.com/weather/api/d/docs?d=data/index).
+Optionally, the profile may contain a download string, to allow multiple
+profiles to read the same downloaded data.
 
 To see examples, read the `default.json` included in this repo.
 
@@ -67,6 +70,14 @@ For example, the string `%current_observation/weather%,
 F`.
 
 In order to use a literal percent, escape it with a backslash (e.g. '\%').
+
+## download
+
+By default, the profile `~/.config/winfo/prof.json` will download and read data
+from `~/.cache/winfo/prof.json`. However, if the download string is set in the
+profile (e.g. `"download": "output"`), then `winfo` will download and read data
+from `~/.cache/winfo/output.json`. This allows multiple profiles to share the
+same downloaded data.
 
 # Copyright
 

@@ -1,7 +1,7 @@
 .\" Process this file with
 .\" groff -man -Tascii winfo.1
 .\"
-.TH WINFO 1 "winfo-0.1" "" "General Commands Manual"
+.TH WINFO 1 "winfo-0.3" "" "General Commands Manual"
 .SH NAME
 winfo \- download and display weather information from wunderground
 .SH SYNOPSIS
@@ -9,6 +9,7 @@ winfo \- download and display weather information from wunderground
 .RB [ \-h ]
 .RB [ \-v ]
 .RB [ \-f ]
+.RB [ \-q ]
 .RB [ profile ]
 .SH DESCRIPTION
 .B winfo
@@ -27,7 +28,12 @@ Print usage information about the program, then exit.
 Print version information about the program and exit.
 .TP
 .B \-f
-Download new weather data instead of printing cached data.
+Download new weather data before printing (use
+.B \-q
+to suppress output).
+.TP
+.B \-q
+Do not print weather information.
 .TP
 .B profile
 Use the given profile to configure what weather information to download. The

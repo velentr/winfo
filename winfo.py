@@ -9,7 +9,7 @@ import os.path      # for getting the path to the profiles
 # Current version information
 PROGRAM_NAME = 'winfo'
 MAJOR_VERSION = '0'
-MINOR_VERSION = '2'
+MINOR_VERSION = '3'
 COPYRIGHT = 'Copyright (c) 2014 Brian Kubisiak <velentr.rc@gmail.com>'
 
 VERSTR      = MAJOR_VERSION + '.' + MINOR_VERSION
@@ -22,8 +22,11 @@ def main():
 
     profname = args.profile if args.profile else 'default'
     profile = loadprofile(profname)
-    datafile = os.path.expanduser('~') + '/.cache/' + PROGRAM_NAME + '/' \
-            + profname + '.json'
+    datafile = os.path.expanduser('~') + '/.cache/' + PROGRAM_NAME + '/'
+    try:
+        datafile = datafile + profile['download'] + '.json'
+    except KeyError:
+        datafile = datafile + profname + '.json'
 
     if args.fetch:
         weather = fetch(profile)
@@ -34,7 +37,7 @@ def main():
         except IOError:
             print "Cannot write cache file for '%s'." % profname
             exit(1)
-    else:
+    if not args.quiet:
         try:
             infile = open(datafile, 'r')
             data = json.load(infile)
@@ -103,6 +106,11 @@ def parseargs():
     # Command for downloading data from wunderground
     parser.add_argument('-f', '--fetch',
             help='download the latest weather data',
+            action='store_true')
+
+    # Do not print the output
+    parser.add_argument('-q', '--quiet',
+            help='do not print weather data',
             action='store_true')
 
     # Specify the profile to use

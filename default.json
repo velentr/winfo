@@ -1,4 +1,5 @@
 {
+    "download": "chanhassen",
     "features": [
         "conditions", "geolookup", "forecast"
     ],
