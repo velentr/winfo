@@ -13,7 +13,9 @@ profile for the script to use (see the configuration section below for details).
 `winfo` aims to be incredibly simple to use: after your profile is set up,
 running `winfo -f <profile>` will fetch new weather data before printing it, and
 `winfo <profile>` will display the data. To fetch data without printing it, run
-`winfo -f -q`. If no profile is specified, then 'default' is used.
+`winfo -f -q`. If no profile is specified, then 'default' is used. To specify
+the output format on the command line, use the `-o <output>` argument. This will
+override the format in the loaded profile.
 
 Two other command-line options, `-h` and `-v`, are available for showing help
 and version information (respectively).
@@ -90,6 +92,9 @@ Comments, complaints, suggestions, etc. are all welcome.
 - [x] extend format strings to allow arbitrary categories
 - [x] write scripts for managing profiles
 - [x] document wprofile script
+- [ ] allow array indexing in output format
+- [x] add `-o` argument to specify output format
+- [ ] fix `-o` argument to allow escape sequences
 - [ ] fix getopt in wprofile to allow args in any order
 - [ ] better documentation
 
