@@ -41,7 +41,10 @@ def main():
         try:
             infile = open(datafile, 'r')
             data = json.load(infile)
-            print parseformat(profile['format'], data)
+            if args.output == None:
+                print parseformat(profile['format'], data)
+            else:
+                print parseformat(args.output, data)
         except IOError:
             print "Cannot read cache file for '%s'." % profname
             exit(1)
@@ -107,6 +110,11 @@ def parseargs():
     parser.add_argument('-f', '--fetch',
             help='download the latest weather data',
             action='store_true')
+
+    # Specify the output format, rather than use the one in the profile
+    parser.add_argument('-o', '--output',
+            help='print the given output string',
+            action='store')
 
     # Do not print the output
     parser.add_argument('-q', '--quiet',

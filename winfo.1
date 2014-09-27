@@ -9,6 +9,8 @@ winfo \- download and display weather information from wunderground
 .RB [ \-h ]
 .RB [ \-v ]
 .RB [ \-f ]
+.RB [ \-o
+.BR output ]
 .RB [ \-q ]
 .RB [ profile ]
 .SH DESCRIPTION
@@ -31,6 +33,10 @@ Print version information about the program and exit.
 Download new weather data before printing (use
 .B \-q
 to suppress output).
+.TP
+.B \-o output
+Print the given output string, rather than printing the output string in the
+loaded profile.
 .TP
 .B \-q
 Do not print weather information.
