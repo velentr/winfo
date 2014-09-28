@@ -1,7 +1,7 @@
 .\" Process this file with
 .\" groff -man -Tascii wprofile.1
 .\"
-.TH WPROFILE 1 "wprofile-0.1" "" "General Commands Manual"
+.TH WPROFILE 1 "wprofile-0.2" "" "General Commands Manual"
 .SH NAME
 wprofile \- manage profiles for
 .BR winfo (1)
@@ -10,6 +10,7 @@ wprofile \- manage profiles for
 .RB [ \-h ]
 .RB [ \-v ]
 .RB [ \-f ]
+.RB [ \-e ]
 .RB < profile >
 .RB [ target ]
 .SH DESCRIPTION
@@ -28,6 +29,9 @@ Print version information about the program and exit.
 .TP
 .B \-f
 Force the profile to be overwritten, even if it is not a symlink.
+.TP
+.B \-e
+Edit the profile with the default editor instead of creating a symlink.
 .TP
 .B profile
 Symlink this profile to the target name.

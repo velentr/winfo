@@ -1,11 +1,11 @@
 #!/bin/sh
 
-VERSION="0.1"
+VERSION="0.2"
 
 # Print usage statement and exit
 usage()
 {
-    echo "usage: $0 [-h] [-v] [-f] <profile> [target]"
+    echo "usage: $0 [-h] [-v] [-f] [-e] <profile> [target]"
     exit
 }
 
@@ -17,40 +17,56 @@ version()
     exit
 }
 
-# do not remove default.json
+# do not remove default.json by default
 force=0
 
-while getopts ":hvf" opt; do
+# do not edit profile by default
+edit=0
+
+for opt in $@; do
     case $opt in
-        h)
+        -h)
             usage
             ;;
-        v)
+        -v)
             version
             ;;
-        f)
-            # remove default.json if it exists
+        -f)
             force=1
             ;;
-        \?)
-            echo "Unknown option: -$OPTARG"
+        -e)
+            edit=1
+            ;;
+        *)
+            if [ ! $profile ]; then
+                profile=$opt
+            elif [ ! $target ]; then
+                target=$opt
+            else
+                usage
+            fi
             ;;
     esac
 done
 
-# profile and target must be last two arguments
-profile=${@:$OPTIND:1}
-target=${@:$OPTIND+1:1}
-
 # default target is default.json
-if [ ! $target ]; then
+if [ ! $profile ]; then
+    usage
+elif [ ! $target ]; then
     target="default"
 fi
 
 cd ~/.config/winfo
 
 if [ -e "./${profile}.json" ]; then
-    if [ ! -e "./${target}.json" ] || [ -h "./${target}.json" ] || [ $force -eq 1 ]; then
+    if [ $edit -eq 1 ]; then
+        if [ ! $EDITOR ]; then
+            echo "\$EDITOR is not defined!"
+            exit
+        else
+            $EDITOR "./${profile}.json"
+        fi
+    elif [ ! -e "./${target}.json" ] || [ -h "./${target}.json" ] || [ $force -eq 1 ]; then
         rm -f "./${target}.json"
         ln -s "./${profile}.json" "./${target}.json"
     else

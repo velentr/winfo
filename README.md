@@ -95,6 +95,6 @@ Comments, complaints, suggestions, etc. are all welcome.
 - [ ] allow array indexing in output format
 - [x] add `-o` argument to specify output format
 - [ ] fix `-o` argument to allow escape sequences
-- [ ] fix getopt in wprofile to allow args in any order
+- [x] fix getopt in wprofile to allow args in any order
 - [ ] better documentation
 
