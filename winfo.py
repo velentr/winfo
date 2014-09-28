@@ -44,7 +44,7 @@ def main():
             if args.output == None:
                 print parseformat(profile['format'], data)
             else:
-                print parseformat(args.output, data)
+                print parseformat(eval("'" + args.output + "'"), data)
         except IOError:
             print "Cannot read cache file for '%s'." % profname
             exit(1)

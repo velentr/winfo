@@ -100,7 +100,7 @@ Comments, complaints, suggestions, etc. are all welcome.
 - [x] document wprofile script
 - [x] allow array indexing in output format
 - [x] add `-o` argument to specify output format
-- [ ] fix `-o` argument to allow escape sequences
+- [x] fix `-o` argument to allow escape sequences
 - [x] fix getopt in wprofile to allow args in any order
 - [ ] better documentation
 
