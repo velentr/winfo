@@ -29,6 +29,10 @@ Running `wprofile chicago` will symlink `chicago.json` to `default.json`,
 displaying the chicago data by default. `wprofile` also accepts an optional
 target name to use instead of 'default'.
 
+This script can also be used to open the specified profile in your default
+editor (uses the `$EDITOR` environment variable). To do this, use the `-e`
+option: `wprofile -e <profname>`.
+
 # Configuration
 
 Configuration for `winfo` is done via JSON profiles stored in
