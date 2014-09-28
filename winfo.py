@@ -193,7 +193,11 @@ def fetch(profile):
 
     url = "http://api.wunderground.com/api/%s/%s/q/%s.json" \
             % (key, features, query)
-    f = urllib2.urlopen(url)
+    try:
+        f = urllib2.urlopen(url)
+    except urllib2.URLError:
+        print 'Cannot connect to wunderground.com'
+        exit(1)
     data = json.load(f)
     f.close()
 
