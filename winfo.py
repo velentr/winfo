@@ -67,9 +67,15 @@ def parseformat(fmt, data):
         keys -- array of keys to look up in the dictionary
         """
         if len(keys) == 1:
-            return str(data[keys[0]])
+            try:
+                return str(data[int(keys[0])])
+            except ValueError:
+                return str(data[keys[0]])
         else:
-            return lookup(data[keys[0]], keys[1:])
+            try:
+                return lookup(data[int(keys[0])], keys[1:])
+            except ValueError:
+                return lookup(data[keys[0]], keys[1:])
 
     def translate(match):
         """Translate a matched group into a data string using the given weather

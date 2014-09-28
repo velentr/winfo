@@ -69,7 +69,9 @@ The format string is what `winfo` will print when it is run. It can contain
 plain text and any escape characters supported by JSON. In addition, any strings
 enclosed in percent signs (%) will be substituted with the wunderground data
 corresponding to that string, where forward slashes (/) denote nested levels in
-the data.
+the data. In order to index into JSON arrays, all numerical values will be
+parsed into integers as used as indices instead of keys. Note that array
+indexing still uses forward slashes as delimeters.
 
 For example, the string `%current_observation/weather%,
 %current_observation/temp_f% F` might be printed out as `Scattered Clouds, 71.0
@@ -96,7 +98,7 @@ Comments, complaints, suggestions, etc. are all welcome.
 - [x] extend format strings to allow arbitrary categories
 - [x] write scripts for managing profiles
 - [x] document wprofile script
-- [ ] allow array indexing in output format
+- [x] allow array indexing in output format
 - [x] add `-o` argument to specify output format
 - [ ] fix `-o` argument to allow escape sequences
 - [x] fix getopt in wprofile to allow args in any order
