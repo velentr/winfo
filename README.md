@@ -93,14 +93,3 @@ Copyright (c) 2014 Brian Kubisiak <velentr.rc@gmail.com>
 
 Comments, complaints, suggestions, etc. are all welcome.
 
-# TODO
-
-- [x] extend format strings to allow arbitrary categories
-- [x] write scripts for managing profiles
-- [x] document wprofile script
-- [x] allow array indexing in output format
-- [x] add `-o` argument to specify output format
-- [x] fix `-o` argument to allow escape sequences
-- [x] fix getopt in wprofile to allow args in any order
-- [ ] better documentation
-
