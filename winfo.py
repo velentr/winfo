@@ -44,13 +44,23 @@ def main():
             if args.output == None:
                 print parseformat(profile['format'], data)
             else:
-                print parseformat(eval("'" + args.output + "'"), data)
+                print parseformat(evalstr(args.output), data)
         except IOError:
             print "Cannot read cache file for '%s'." % profname
             exit(1)
         except KeyError:
             print "You must include a format string in your profile!"
             exit(1)
+
+def evalstr(fmt):
+    """Evaluate all the escape sequences in the given string, keeping any single
+    quotes unescaped.
+
+    Arguments:
+    fmt -- the format string to evaluate
+    """
+    fmt = re.sub("'", "\\'", fmt)
+    return eval("'" + fmt + "'")
 
 def parseformat(fmt, data):
     """Parse the given format string and return the formatted data.
