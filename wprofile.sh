@@ -1,11 +1,11 @@
 #!/bin/sh
 
-VERSION="0.2"
+VERSION="0.3"
 
 # Print usage statement and exit
 usage()
 {
-    echo "usage: $0 [-h] [-v] [-f] [-e] <profile> [target]"
+    echo "usage: $(basename $0) [-h] [-v] [-f] [-e] <profile> [target]"
     exit
 }
 
@@ -49,9 +49,13 @@ for opt in $@; do
     esac
 done
 
-# default target is default.json
+# default profile/target is default.json
 if [ ! $profile ]; then
-    usage
+    if [ $edit -eq 1 ]; then
+        profile="default"
+    else
+        usage
+    fi
 elif [ ! $target ]; then
     target="default"
 fi
